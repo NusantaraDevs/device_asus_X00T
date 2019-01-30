@@ -51,7 +51,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 
-public class KeyHandler implements DeviceKeyHandler {
+public class KeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final int GESTURE_REQUEST = 1;
@@ -372,8 +372,6 @@ public class KeyHandler implements DeviceKeyHandler {
         return msg;
     }
 
-
-  @Override
     public boolean isDisabledKeyEvent(KeyEvent event) {
         boolean isProxyCheckRequired = mUseProxiCheck &&
                 ArrayUtils.contains(sProxiCheckedGestures, event.getScanCode());
@@ -384,7 +382,6 @@ public class KeyHandler implements DeviceKeyHandler {
         return false;
     }
 
-  @Override
     public boolean isWakeEvent(KeyEvent event){
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
@@ -392,7 +389,6 @@ public class KeyHandler implements DeviceKeyHandler {
         return event.getScanCode() == KEY_DOUBLE_TAP;
     }
 
-    @Override
     public boolean isCameraLaunchEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
@@ -400,14 +396,10 @@ public class KeyHandler implements DeviceKeyHandler {
         return event.getScanCode() == GESTURE_C_SCANCODE;
    }
 
-    @Override
     public boolean canHandleKeyEvent(KeyEvent event) {
         return ArrayUtils.contains(sSupportedGestures, event.getScanCode());
     }
 
-
-
-        @Override
     public Intent isActivityLaunchEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return null;
