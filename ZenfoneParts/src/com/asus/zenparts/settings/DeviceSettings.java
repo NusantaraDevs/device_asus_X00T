@@ -97,8 +97,6 @@ public class DeviceSettings extends PreferenceFragment
         mSliderModeBottom.setSummary(mSliderModeBottom.getEntries()[valueIndex]);
 
         mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
-        mProxiSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-                Settings.System.DEVICE_PROXI_CHECK_ENABLED, 1) != 0);
     }
 
     private void setSummary(ListPreference preference, String file) {
@@ -108,17 +106,6 @@ public class DeviceSettings extends PreferenceFragment
             preference.setSummary(preference.getEntry());
         }
     }
-
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mProxiSwitch) {
-            Settings.System.putInt(getContext().getContentResolver(),
-                    Settings.System.DEVICE_PROXI_CHECK_ENABLED, mProxiSwitch.isChecked() ? 1 : 0);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preference);
-    }
-
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {

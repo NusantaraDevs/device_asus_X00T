@@ -133,7 +133,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean mProxyIsNear;
     private boolean mUseProxiCheck;
     private Sensor mSensor;
-    private SettingsObserver mSettingsObserver;
 
     private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
          @Override
@@ -158,8 +157,6 @@ public class KeyHandler implements DeviceKeyHandler {
 
     public KeyHandler(Context context) {
         mContext = context;
-        mSettingsObserver = new SettingsObserver(mHandler);
-        mSettingsObserver.observe();
         mEventHandler = new EventHandler();
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
@@ -301,30 +298,6 @@ public class KeyHandler implements DeviceKeyHandler {
                         SensorManager.SENSOR_DELAY_NORMAL);
         }
    }
-
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DEVICE_PROXI_CHECK_ENABLED),
-                    false, this);
-            update();
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            update();
-        }
-
-        public void update() {
-            mUseProxiCheck = Settings.System.getIntForUser(
-                    mContext.getContentResolver(), Settings.System.DEVICE_PROXI_CHECK_ENABLED, 1,
-                    UserHandle.USER_CURRENT) == 1;
-        }
-}
 
     private void doHapticFeedback() {
         if (mVibrator == null) {
