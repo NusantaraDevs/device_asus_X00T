@@ -25,6 +25,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Inherit some common ArrowOS stuff
 $(call inherit-product, vendor/arrow/config/common.mk)
 
+# Installs gsi keys into ramdisk, to boot a GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
 # Inherit from X00T device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
