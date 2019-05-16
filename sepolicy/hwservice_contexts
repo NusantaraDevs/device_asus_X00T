@@ -1,1 +1,5 @@
 vendor.goodix.hardware.fingerprint::IGoodixBiometricsFingerprint         u:object_r:hal_fingerprint_hwservice:s0
+android.hardware.radio::ISap						u:object_r:hal_telephony_hwservice:s0
+android.hardware.secure_element::ISecureElement				u:object_r:hal_secure_element_hwservice:s0
+android.system.net.netd::INetd						u:object_r:system_net_netd_hwservice:s0
+# vendor.qti.hardware.perf::IPerf						u:object_r:default_android_hwservice:s0
