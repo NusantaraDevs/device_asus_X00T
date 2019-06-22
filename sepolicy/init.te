@@ -15,3 +15,10 @@ dontaudit init nvram_btwifi:process noatsecure;
 
 dontaudit init nvram_btwifi:process noatsecure;
 dontaudit init domain:process noatsecure;
+
+allow init hal_perf_default:binder call;
+allow init hal_perf_hwservice:hwservice_manager find;
+allow init hwservicemanager:binder call;
+allow init mediadrmserver:binder transfer;
+allow init self:process execmem;
+allow init tee_device:chr_file write;

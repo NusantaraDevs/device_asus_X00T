@@ -22,6 +22,7 @@
 
 # Lights HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.X00T    u:object_r:hal_light_default_exec:s0
+
 # Ipa
 /vendor/bin/init\.qcom\.ipastart\.sh                                    u:object_r:init-qcom-ipastart-sh_exec:s0
 
@@ -35,3 +36,7 @@
 # DRM
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.[0-1]-service\.clearkey				u:object_r:hal_drm_clearkey_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.[0-1]-service\.widevine				u:object_r:hal_drm_widevine_exec:s0
+
+# blutmac script
+/(vendor|system/vendor)/bin/nvram_btwifi                                u:object_r:nvram_btwifi_exec:s0
+
