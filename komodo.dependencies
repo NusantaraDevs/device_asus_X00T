@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "proprietary_vendor_asus_X00T",
+    "target_path": "vendor/asus/"
+  },
+  {
+    "repository": "kernel_asus_sdm660",
+    "target_path": "kernel/asus/sdm660"
+  }
+]
