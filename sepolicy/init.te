@@ -6,5 +6,10 @@ allow init nvram_btwifi_exec:file { read getattr execute map open };
 allow init sysfs_mmc_host:file { setattr w_file_perms };
 allow init proc_swappiness:file w_file_perms;
 
+allow init vendor_file:file execute;
+allow init untrusted_app:fd use;
+allow init untrusted_app_27:fd use;
+allow init hidl_memory_hwservice:hwservice_manager find;
+
 dontaudit init nvram_btwifi:process noatsecure;
 dontaudit init domain:process noatsecure;
