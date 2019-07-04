@@ -12,4 +12,6 @@ allow init untrusted_app_27:fd use;
 allow init hidl_memory_hwservice:hwservice_manager find;
 
 dontaudit init nvram_btwifi:process noatsecure;
+
+dontaudit init nvram_btwifi:process noatsecure;
 dontaudit init domain:process noatsecure;
