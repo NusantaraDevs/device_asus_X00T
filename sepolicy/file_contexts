@@ -1,6 +1,10 @@
 # bluetooth
 /(vendor|system/vendor|system)/bin/nvram_btwifi                         u:object_r:nvram_btwifi_exec:s0
 
+# Firmware
+/(vendor|system/vendor)/bt_firmware                                     u:object_r:bt_firmware_file:s0
+/(vendor|system/vendor)/firmware_mnt                                    u:object_r:firmware_file:s0
+
 # Keylayout
 /(vendor|system/vendor)/usr/keylayout(/.*)?                             u:object_r:keylayout_file:s0
 
