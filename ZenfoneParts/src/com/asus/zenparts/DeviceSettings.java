@@ -51,10 +51,20 @@ public class DeviceSettings extends PreferenceFragment implements
     final static String PREF_MICROPHONE_GAIN = "microphone_gain";
     private static final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
 
+    final static String PREF_CHARGE_MODE = "charge_mode";
+    private static final String CHARGE_MODE_PATH = "/sys/module/smb_lib/parameters/charge_mode";
+    final static String PREF_ICL_VALUE = "icl_value";
+    private static final String ICL_VALUE_PATH = "/sys/module/smb_lib/parameters/adapter_ceeling_current";
+    final static String PREF_FORCED_CURRENT = "forced_current";
+    private static final String FORCED_CURRENT_PATH = "/sys/module/smb_lib/parameters/forced_current";
+
     private SecureSettingCustomSeekBarPreference mTorchBrightness;
     private VibrationSeekBarPreference mVibrationStrength;
     private SecureSettingCustomSeekBarPreference mHeadphoneGain;
     private SecureSettingCustomSeekBarPreference mMicrophoneGain;
+    private SecureSettingCustomSeekBarPreference mChargeMode;
+    private SecureSettingCustomSeekBarPreference mIclValue;
+    private SecureSettingCustomSeekBarPreference mForcedCurrent;
     private Preference mKcalPref;
     private Preference mAmbientPref;
 
@@ -80,6 +90,15 @@ public class DeviceSettings extends PreferenceFragment implements
 
         mMicrophoneGain = (SecureSettingCustomSeekBarPreference) findPreference(PREF_MICROPHONE_GAIN);
         mMicrophoneGain.setOnPreferenceChangeListener(this);
+
+        mChargeMode = (SecureSettingCustomSeekBarPreference) findPreference(PREF_CHARGE_MODE);
+        mChargeMode.setOnPreferenceChangeListener(this);
+
+        mIclValue = (SecureSettingCustomSeekBarPreference) findPreference(PREF_ICL_VALUE);
+        mIclValue.setOnPreferenceChangeListener(this);
+
+        mForcedCurrent = (SecureSettingCustomSeekBarPreference) findPreference(PREF_FORCED_CURRENT);
+        mForcedCurrent.setOnPreferenceChangeListener(this);
 
 	mAmbientPref = findPreference("ambient_display_gestures");
         mAmbientPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -122,6 +141,18 @@ public class DeviceSettings extends PreferenceFragment implements
 
             case PREF_MICROPHONE_GAIN:
                 FileUtils.setValue(MICROPHONE_GAIN_PATH, (int) value);
+                break;
+
+            case PREF_CHARGE_MODE:
+                FileUtils.setValue(CHARGE_MODE_PATH, (int) value);
+                break;
+
+            case PREF_ICL_VALUE:
+                FileUtils.setValue(ICL_VALUE_PATH, (int) value);
+                break;
+
+            case PREF_FORCED_CURRENT:
+                FileUtils.setValue(FORCED_CURRENT_PATH, (int) value);
                 break;
 
             default:
