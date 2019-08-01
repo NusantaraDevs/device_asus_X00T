@@ -182,6 +182,14 @@ on boot
     chown system system /sys/class/power_supply/battery/input_suspend
     chmod 0666 /sys/class/power_supply/battery/input_suspend
 
+    # SMB-LIB
+    chown system system /sys/module/smb_lib/parameters/charge_mode
+    chown system system /sys/module/smb_lib/parameters/adapter_ceeling_current
+    chown system system /sys/module/smb_lib/parameters/forced_current
+    chmod 0660 /sys/module/smb_lib/parameters/adapter_ceeling_current
+    chmod 0660 /sys/module/smb_lib/parameters/forced_current
+    chmod 0660 /sys/module/smb_lib/parameters/charge_mode
+
 #Huaqin add for sensors permission-ZQL1650-141 by chenyijun5 at 2018/2/1 start
     chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable
     chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_delay

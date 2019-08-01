@@ -26,6 +26,12 @@
 
     <string name="audio_title">Audio</string>
 
+    <!-- SMB-LIB Charger -->
+    <string name="charger">Charging</string>
+    <string name="charge_mode">Fast charge mode</string>
+    <string name="adapter_ceeling_current">Input current limit</string>
+    <string name="forced_current">Force input current</string>
+
     <!-- Audio amplification -->
     <string name="headphone_gain">Headphone gain</string>
     <string name="microphone_gain">Microphone gain</string>

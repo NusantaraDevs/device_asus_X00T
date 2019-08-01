@@ -26,6 +26,12 @@
 
     <string name="audio_title">Suara</string>
 
+    <!-- SMB-LIB Charger -->
+    <string name="charger">Pengisian daya</string>
+    <string name="charge_mode">Mode pengisian daya cepat</string>
+    <string name="adapter_ceeling_current">Limit arus input</string>
+    <string name="forced_current">Paksa arus input</string>
+
     <!-- CustomSeekBarPreference -->
     <string name="edit_value">Atur nilai</string>
     <string name="default_value">Nilai bawaan</string>

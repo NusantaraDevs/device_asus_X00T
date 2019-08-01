@@ -86,4 +86,27 @@
             android:title="@string/torch_brightness_title" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="smb-lib"
+        android:title="@string/charger">
+        <com.asus.zenparts.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="2"
+            android:key="charge_mode"
+            android:max="4"
+            app:min="0"
+            android:title="@string/charge_mode" />
+        <com.asus.zenparts.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="2"
+            android:key="icl_value"
+            android:max="5"
+            app:min="0"
+            android:title="@string/adapter_ceeling_current" />
+        <com.asus.zenparts.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="2"
+            android:key="forced_current"
+            android:max="5"
+            app:min="1"
+            android:title="@string/forced_current" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
