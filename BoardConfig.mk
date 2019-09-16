@@ -266,8 +266,5 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 # Use AOSP Wlan
 BOARD_USES_AOSP_WLAN_HAL := true
 
-# Pre-opt SystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
-
 # inherit from the proprietary version
 -include vendor/asus/X00T/BoardConfigVendor.mk
